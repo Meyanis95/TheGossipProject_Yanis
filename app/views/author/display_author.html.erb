@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">TheGossipProject</a>
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+  <a class="navbar-brand" href="/">TheGossipProject</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -18,7 +18,11 @@
   </div>
 </nav>
 
-<h1> Voici la page de l'auteur <%= @author_first_name %> <%= @author_last_name %>  !</h1>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Voici la page de l'auteur <%= @author_first_name %> <%= @author_last_name %>  !</h1>
+  </div>
+</div>
 
 <p> Les informations sur l'auteur : </p>
 <div>

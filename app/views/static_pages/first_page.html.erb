@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">TheGossipProject</a>
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+  <a class="navbar-brand" href="/">TheGossipProject</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -18,26 +18,29 @@
   </div>
 </nav>
 
-<h1 class="text-center"> Bienvenue sur notre page d'accueil ! </h1>
-<p class="text-center"> Voici tous les potins que nous avons d'enregistré :</p>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Bienvenue sur notre page d'accueil !</h1>
+    <p class="lead">Voici tous les potins que nous avons d'enregistré :</p>
+  </div>
+</div>
+
   <div class="card-group">
-    <div class="row-fluid">
       <% @gossip.each do |gossip| %>
-        <div class="col-sm-4 my-4">
+        <div class="col-sm-4 text-center">
           <div class="card-columns-fluid">
-            <div class="card border-primary bg-light mb-3 display:inline-block" style = "width: 22rem; " >
+            <div class="card border-primary bg-light mb-3 display:inline-block" style = "width: 25rem; " >
               <div class="card-body">
                 <h5 class="card-title"><%= gossip.title.capitalize %></h5>
                 <h6 class="card-subtitle mb-2 text-muted">Crée le <%= gossip.created_at.to_s(:db) %></h6>
                 <p class="card-text">Titre du potin : <%= gossip.title.capitalize %></p>
                 <p class="card-text">Auteur du potin : <%= User.find_by(id: gossip.user_id).first_name %></p>
-                <a href="/gossip/<%= gossip.id %>" class="card-link">Lien vers le potin</a>
+                <a href="/gossip/<%= gossip.id %>" class="card-link">Voir plus ...</a>
               </div>
             </div>
           </div>
         </div>
       <% end %>
-    </div>
   </div>
 
 

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
   <a class="navbar-brand" href="/">TheGossipProject</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -18,29 +18,35 @@
   </div>
 </nav>
 
-<h1> Vous sur la page du potin <%= @gossip_title %> !</h1>
-
-<p> Voilà ce qu'a dit <strong><%= @user_first_name %><%= @user_last_name %></strong> : </p>
-<p><%= @gossip_content %></p>
-<p><em>Le <%= @gossip_date.to_s(:db) %></em></p>
-
-<p> Les informations sur l'auteur : </p>
-<div>
-    <ul>
-      <li>
-        <p>Prénom : <%= @user_first_name %></p>
-      </li>
-      <li>
-        <p>Nom : <%= @user_last_name %></p>
-      </li>
-      <li>
-        <p>Age : <%= @user_age %> ans</p>
-      </li>
-      <li>
-        <p>Ville : <%= @user_city %></p>
-      </li>
-      <li>
-        <p><a href="/author/<%= @user_id %>" class="card-link">Lien vers la page de l'auteur</a>
-      </li>
-    </ul>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Vous sur la page du potin <%= @gossip_title %> </h1>
   </div>
+</div>
+
+<div class="card text-center">
+  <p> Voilà ce qu'a dit <strong><%= @user_first_name %><%= @user_last_name %></strong> : </p>
+  <p><%= @gossip_content %></p>
+  <p><em>Le <%= @gossip_date.to_s(:db) %></em></p>
+
+  <p><strong>Les informations sur l'auteur : </strong></p>
+  <div>
+      <ul>
+        <li>
+          <p>Prénom : <%= @user_first_name %></p>
+        </li>
+        <li>
+          <p>Nom : <%= @user_last_name %></p>
+        </li>
+        <li>
+          <p>Age : <%= @user_age %> ans</p>
+        </li>
+        <li>
+          <p>Ville : <%= @user_city %></p>
+        </li>
+        <li>
+          <p><a href="/author/<%= @user_id %>" class="card-link">Lien vers la page de l'auteur</a>
+        </li>
+      </ul>
+    </div>
+</div>
