@@ -1,0 +1,50 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">TheGossipProject</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Accueil <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/team">Team</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/contact">Contact</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<h1> Voici la page de l'auteur <%= @author_first_name %> <%= @author_last_name %>  !</h1>
+
+<p> Les informations sur l'auteur : </p>
+<div>
+    <ul>
+      <li>
+        <p>Prénom : <%= @author_first_name %></p>
+      </li>
+      <li>
+        <p>Nom : <%= @author_last_name %></p>
+      </li>
+      <li>
+        <p>Age : <%= @author_age %> ans</p>
+      </li>
+      <li>
+        <p>Ville : <%= @author_city %></p>
+      </li>
+      <li>
+        <p>Email : <%= @author_mail %></p>
+      </li>
+      <li>
+        <p>La liste de ses potins :</p>
+        <p><% @author_gossips.each do |gossip| %>
+        <a href="/gossip/<%= gossip.id %>" class="card-link">Lien vers le potion <%= gossip.title %></a>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+
+  

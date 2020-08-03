@@ -1,0 +1,46 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/">TheGossipProject</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Accueil <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/team">Team</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/contact">Contact</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<h1> Vous sur la page du potin <%= @gossip_title %> !</h1>
+
+<p> Voilà ce qu'a dit <strong><%= @user_first_name %><%= @user_last_name %></strong> : </p>
+<p><%= @gossip_content %></p>
+<p><em>Le <%= @gossip_date.to_s(:db) %></em></p>
+
+<p> Les informations sur l'auteur : </p>
+<div>
+    <ul>
+      <li>
+        <p>Prénom : <%= @user_first_name %></p>
+      </li>
+      <li>
+        <p>Nom : <%= @user_last_name %></p>
+      </li>
+      <li>
+        <p>Age : <%= @user_age %> ans</p>
+      </li>
+      <li>
+        <p>Ville : <%= @user_city %></p>
+      </li>
+      <li>
+        <p><a href="/author/<%= @user_id %>" class="card-link">Lien vers la page de l'auteur</a>
+      </li>
+    </ul>
+  </div>
