@@ -1,5 +1,5 @@
-class AuthorController < ApplicationController
-  def display_author
+class AuthorsController < ApplicationController
+  def show
     @author_id = params[:author_id]
     
     @author_first_name = User.find_by(id: @author_id).first_name

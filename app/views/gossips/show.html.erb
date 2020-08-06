@@ -1,0 +1,51 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Vous sur la page du potin <%= @gossip_title %> </h1>
+  </div>
+</div>
+
+<div class="card text-center">
+  <p> Voilà ce qu'a dit <strong><%= @user_first_name %> <%= @user_last_name %></strong> : </p>
+  <p><%= @gossip_content %></p>
+  <p><em>Le <%= @gossip_date.to_s(:db) %></em></p>
+  <p><a href= <%=edit_gossip_path%> class="btn btn-primary">Modifier le gossip</a></p>
+  <p><a href= <%= gossip_path(@gossip.id) %> class="btn btn-danger" data-confirm="Etes-vous sur ?" data-method="DELETE">Supprimer le gossip</a></p>
+  <p><a href="<%= new_gossip_comment_path(@gossip.id) %>" class="btn btn-success">Ecrire un commentaire</a></p>
+
+  <h2>Les commentaires</h2>
+  <div class="card-group">
+      <% Comment.where(gossip: @id).each do |comment| %>
+        <div class="col-sm-4 text-center">
+          <div class="card-columns-fluid">
+            <div class="card border-primary bg-light mb-3 display:inline-block" style = "width: 25rem; " >
+              <div class="card-body">
+                <p class="list-group-item"><%= comment.content %></p>
+                <p><a href= <%= gossip_comment_path(comment.id) %> class="btn btn-danger" data-confirm="Etes-vous sur ?" data-method="DELETE">Supprimer le commentaire</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+  </div>
+
+  <p><strong>Les informations sur l'auteur : </strong></p>
+  <div>
+      <ul>
+        <li>
+          <p>Prénom : <%= @user_first_name %></p>
+        </li>
+        <li>
+          <p>Nom : <%= @user_last_name %></p>
+        </li>
+        <li>
+          <p>Age : <%= @user_age %> ans</p>
+        </li>
+        <li>
+          <p>Ville : <a href="/city/<%= User.find_by(id: @gossip.user_id).city.id %>" class="card-link"><%= User.find_by(id: @gossip.user_id).city.name %></a>
+        </li>
+        <li>
+          <p><a href="/authors/<%= @user_id %>" class="card-link">Lien vers la page de l'auteur</a>
+        </li>
+      </ul>
+    </div>
+</div>

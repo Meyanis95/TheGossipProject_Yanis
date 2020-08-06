@@ -1,7 +1,7 @@
 require 'faker'
 User.destroy_all
 Gossip.destroy_all
-Tag.destroy_all
+Comment.destroy_all
 City.destroy_all
 PrivateMessage.destroy_all
 JoinTableGossipTag.destroy_all
@@ -25,10 +25,9 @@ tag = Tag.create(title: Faker::Hacker.ingverb)
 end
 
 #Assignate tags to gossips
-Tag.all.each do |tag|
-  rand(1..4).times do
-    tag.gossips << Gossip.all.sample
-  end
+
+30.times do
+  Comment.create(content:Faker::Hipster.word,user: User.all.sample,gossip:Gossip.all.sample)
 end
 
 20.times do

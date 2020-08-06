@@ -1,27 +1,11 @@
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
-  <a class="navbar-brand" href="/">TheGossipProject</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="/">Accueil <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/team">Team</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/contact">Contact</a>
-      </li>
-    </ul>
-  </div>
-</nav>
 
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <h1 class="display-4">Bienvenue sur notre page d'accueil !</h1>
     <p class="lead">Voici tous les potins que nous avons d'enregistré :</p>
+    <p class="lead">
+      <a class="btn btn-primary btn-lg" href="/gossips/new" role="button">Créer un potin</a>
+    </p>
   </div>
 </div>
 
@@ -35,7 +19,7 @@
                 <h6 class="card-subtitle mb-2 text-muted">Crée le <%= gossip.created_at.to_s(:db) %></h6>
                 <p class="card-text">Titre du potin : <%= gossip.title.capitalize %></p>
                 <p class="card-text">Auteur du potin : <%= User.find_by(id: gossip.user_id).first_name %></p>
-                <a href="/gossip/<%= gossip.id %>" class="card-link">Voir plus ...</a>
+                <a href="/gossips/<%= gossip.id %>" class="card-link">Voir plus ...</a>
               </div>
             </div>
           </div>

@@ -1,0 +1,35 @@
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Voici la page de l'auteur <%= @author_first_name %> <%= @author_last_name %>  !</h1>
+  </div>
+</div>
+
+<p> Les informations sur l'auteur : </p>
+<div>
+    <ul>
+      <li>
+        <p>Prénom : <%= @author_first_name %></p>
+      </li>
+      <li>
+        <p>Nom : <%= @author_last_name %></p>
+      </li>
+      <li>
+        <p>Age : <%= @author_age %> ans</p>
+      </li>
+      <li>
+        <p>Ville : <a href="/city/<%= User.find_by(id: @author_id).city.id %>" class="card-link"><%= User.find_by(id: @author_id).city.name %></a>
+      </li>
+      <li>
+        <p>Email : <%= @author_mail %></p>
+      </li>
+      <li>
+        <p>La liste de ses potins :</p>
+        <p><% @author_gossips.each do |gossip| %>
+        <a href="/gossips/<%= gossip.id %>" class="card-link">Lien vers le potion <%= gossip.title %></a>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+
+  

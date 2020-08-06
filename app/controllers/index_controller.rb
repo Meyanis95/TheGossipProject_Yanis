@@ -1,5 +1,5 @@
 class IndexController < ActionController::Base
-  def first_page
+  def index
     @gossip = Gossip.all
   end
 end

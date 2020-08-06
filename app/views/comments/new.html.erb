@@ -1,0 +1,11 @@
+<h1>Commenter le potin</h1>
+
+<%= form_tag url_for(action: 'create'), method: "POST" do %>
+
+      <%= label_tag 'Contenu' %>
+      <%= text_area_tag 'content'%>
+      <br /> <br />
+
+      <%= submit_tag "poster ton commentaire" %>
+
+<% end %>

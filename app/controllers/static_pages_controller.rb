@@ -9,7 +9,7 @@ class StaticPagesController < ApplicationController
     @user = params[:first_name]
   end 
 
-  def first_page
+  def index
     @gossip = Gossip.all
   end
 
