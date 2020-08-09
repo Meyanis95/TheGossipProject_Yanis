@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
   before_action :authenticate_user
 
   def create
-    @comment = Comment.new(content: params[:content], user_id: 34, gossip_id: params[:gossip_id])
+    @comment = Comment.new(content: params[:content], user_id: current_user.id, gossip_id: params[:gossip_id])
     puts "voici le params id: #{params}"
     if @comment.save
       redirect_to '/', notice: "Commetaire bien enregistré !"

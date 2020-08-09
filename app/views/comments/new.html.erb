@@ -1,11 +1,13 @@
 <h1>Commenter le potin</h1>
 
+<div class="container mt-5">
 <%= form_tag url_for(action: 'create'), method: "POST" do %>
 
+   <div class="form-group">
       <%= label_tag 'Contenu' %>
-      <%= text_area_tag 'content'%>
-      <br /> <br />
+      <%= text_area_tag 'content', params['content'], class: 'form-control'%>
+   </div>   
 
-      <%= submit_tag "poster ton commentaire" %>
+      <%= submit_tag "poster ton commentaire", class: "btn btn-primary" %>
 
 <% end %>

@@ -1,5 +1,5 @@
 class GossipsController < ApplicationController
-  before_action :authenticate_user#, only: [:index]
+  before_action :authenticate_user
 
   def new
   end
@@ -48,7 +48,7 @@ class GossipsController < ApplicationController
     redirect_to '/'
   end
 
-  def destroy 
+  def destroy
     @gossip = Gossip.find_by(id: params[:id])
     @gossip.destroy
     redirect_to gossips_path, notice: "Potin supprimé !"

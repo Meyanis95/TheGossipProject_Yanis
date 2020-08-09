@@ -8,8 +8,10 @@
   <p> Voilà ce qu'a dit <strong><%= @user_first_name %> <%= @user_last_name %></strong> : </p>
   <p><%= @gossip_content %></p>
   <p><em>Le <%= @gossip_date.to_s(:db) %></em></p>
+  <% if creator?(@gossip.user_id) == true %>
   <p><a href= <%=edit_gossip_path%> class="btn btn-primary">Modifier le gossip</a></p>
   <p><a href= <%= gossip_path(@gossip.id) %> class="btn btn-danger" data-confirm="Etes-vous sur ?" data-method="DELETE">Supprimer le gossip</a></p>
+  <%end%>
   <p><a href="<%= new_gossip_comment_path(@gossip.id) %>" class="btn btn-success">Ecrire un commentaire</a></p>
 
   <h2>Les commentaires</h2>
@@ -20,7 +22,9 @@
             <div class="card border-primary bg-light mb-3 display:inline-block" style = "width: 25rem; " >
               <div class="card-body">
                 <p class="list-group-item"><%= comment.content %></p>
+                <% if creator?(comment.user_id) == true %>
                 <p><a href= <%= gossip_comment_path(comment.id) %> class="btn btn-danger" data-confirm="Etes-vous sur ?" data-method="DELETE">Supprimer le commentaire</a></p>
+                <%end%>
               </div>
             </div>
           </div>
